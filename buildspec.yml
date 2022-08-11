@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - aws cloudformation package --template-file template.yml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-wi4wwgqkyzf --output-template-file packaged.yml
+      - aws cloudformation package --template-file template.yml --awspipelinestack-artifactbucket-1t1f9uir8ukz1 --output-template-file packaged.yml
 
 artifacts:
   type: zip
