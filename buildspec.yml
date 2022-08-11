@@ -1,6 +1,11 @@
 version: 0.2
 phases:
-  build:
+  install:
     commands:
-      - sam build
-      - sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
+      - aws cloudformation package --template-file template.yml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-wi4wwgqkyzf --output-template-file packaged.yml
+
+artifacts:
+  type: zip
+  files:
+    - template.yml
+    - packaged.yml
