@@ -6,9 +6,9 @@ from urllib import request
 
 def lambda_handler(event, context):
     body = json.loads(event["body"])
-    name = body["name"]
-
-
+    firstname = body["firstname"]
+    lastname = body["lastname"]
+    fullname = f"{firstname} {lastname}"
     try:
         ip = request.Request.get("http://checkip.amazonaws.com/")
     except request.RequestException as e:
@@ -21,7 +21,7 @@ def lambda_handler(event, context):
         "statusCode": 200,
         "body": json.dumps(
             {
-                "message": name,
+                "message": fullname,
                 # "location": ip.text.replace("\n", "")
             }
         ),
